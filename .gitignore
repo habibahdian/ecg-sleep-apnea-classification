@@ -1,6 +1,5 @@
 *.pkl
 *.edf
-*.pth
 1dcnn_fe.ipynb
 filter.ipynb
 confusion_matrices_ablation_ABCD.png
