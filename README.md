@@ -12,7 +12,7 @@ ECG-based sleep apnea classification using Multi-Scale SE-ResNet with 6 HRV feat
 - Task        : Binary classification (Normal / Apnea-Hypopnea)
 - Model       : Multi-Scale SE-ResNet (6 input channels)
 - Parameters  : ~7.5M (requires quantization for STM32 NPU)
-- Performance : AUC=0.8531 | F1=0.7559 | Sens=0.7133 | Spec=0.8384
+- Performance : AUC=0.8531 | Acc=0.7782 | F1=0.7559 | Sens=0.7133 | Spec=0.8384 | ACC=0.7782
 
 ## Input Requirements
 - Signal      : ECG
@@ -35,9 +35,9 @@ label, prob = predict(ecg_segment, model)
 print(f"Prediction: {label} | Probability: {prob:.4f}")
 
 ## Output
-- label : "Normal" or "AH" (Apnea-Hypopnea)
-- prob  : probability score (0.0 – 1.0)
-- threshold : 0.4472 (Youden Index optimal threshold)
+- label      : "Normal" or "AH" (Apnea-Hypopnea)
+- prob       : probability score (0.0 – 1.0)
+- threshold  : 0.4472 (Youden Index optimal threshold)
 
 ## Preprocessing Pipeline (inside predict())
 1. Bandpass filter  : 8–50 Hz (Butterworth)
@@ -46,4 +46,3 @@ print(f"Prediction: {label} | Probability: {prob:.4f}")
                       QRS amp std, Mean HR, 
                       Triangular Index, pNN50
 4. Interpolation    : cubic spline → 240 points @ 4Hz
-
