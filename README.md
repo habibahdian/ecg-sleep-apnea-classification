@@ -47,7 +47,3 @@ print(f"Prediction: {label} | Probability: {prob:.4f}")
                       Triangular Index, pNN50
 4. Interpolation    : cubic spline → 240 points @ 4Hz
 
-## Note for STM32 Deployment
-- Model has ~7.5M parameters → requires quantization
-- Recommend converting to ONNX first, then quantize to INT8
-- Input shape to model : (1, 6, 240)
